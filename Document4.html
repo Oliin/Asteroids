@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Pacmania</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="drawing.js"></script>
+    </head>
+    <body>
+        <h1>Pacmania!</h1>
+        <canvas id="asteroids" width="400" height="400"></canvas>
+        <script>
+            var canvas = document.getElementById("asteroids");
+            var context = canvas.getContext("2d");
+	          draw_grid(context);
+
+            let y = 100;
+            for(let x=0;x<350;x=x+25){
+              draw_pacman(context,x,y,15,Math.random()*2);
+            }
+
+            var min_radius = 5;
+            var max_radius = 50;
+            do {
+              let x = context.canvas.width * Math.random();
+              let y = context.canvas.height * Math.random();
+              let radius = min_radius + (max_radius - min_radius) * Math.
+              random();
+              draw_pacman(context, x, y, radius, Math.random()*2);
+              }
+            while(Math.random() < 0.9);
+
+		</script>
+    </body>
+</html>
